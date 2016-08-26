@@ -57,6 +57,7 @@ function displayPie() {
   $("#yourPie").append("<li class='list-group-item'>Toppings: " + myPie.ingredients.join(", ") + "</li>");
   $("#yourPie").append("<li class='list-group-item'>Your Price: $" + myPie.price + "</li>");
 }
+
 $(document).ready (function(){
 
   populateDropdown("#pieSize", myShop.crustChoices);
@@ -66,6 +67,7 @@ $(document).ready (function(){
     var myPieSize = $("#pieSize").val();
     myPie = new Pie(myPieSize);
     displayPie();
+    $(".pieButtons").show();
     console.log(myPie);
   });
   $("#btnAddTopping").click(function() {
@@ -73,6 +75,11 @@ $(document).ready (function(){
     myPie.addTopping(myTopping);
     displayPie();
     console.log(myPie);
+  });
+  $("#btnClearPie").click(function() {
+    delete myPie;
+    $("#yourPie").empty();
+    $(".pieButtons").hide();
   })
 
 });
