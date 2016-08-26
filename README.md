@@ -40,6 +40,10 @@ Create a website for a pizza company where a user can choose one or more individ
   * Input: user clicks on button to select size
   * Output: user advised to reset pizza to change size
 
+* User can have an order with multiple pizzas
+  * Input: once user is happy with pizza, user clicks a button to add pizza to order
+  * Output: selected pizza is added to order and the "build a pizza" section is cleared
+
 ## Setup/Installation Requirements
 
 * Download the .zip file from GitHub

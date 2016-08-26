@@ -8,3 +8,6 @@
 .pieButtons {
   display: none;
 }
+#btnConfirmPie, #btnAddTopping {
+  display: hidden;
+}

@@ -6,12 +6,13 @@ toppingsCatalog = [
   [3, "Red Onions", [.5, .75, 1.25]],
   [4, "Meatballs", [.75, 1, 1.5]],
   [5, "Sun Dried Tomatoes", [.75, 1, 1.5]],
-  [6, "Red Onions", [.5, .75, 1.25]]
+  [6, "Red Onions", [.5, .75, 1.25]],
+  [7, "BBQ Soy Curls", [.75, 1, 1.5]]
 ];
 crustCatalog = [
-  [0, "Personal: 8\"", 8],
-  [1, "Medium: 12\"", 12],
-  [2, "Large: 16\"", 16]
+  [0, "Personal 8\"", 8],
+  [1, "Medium 12\"", 12],
+  [2, "Large 16\"", 16]
 ];
 function Pizzeria() {
   this.toppingsChoices = [];
@@ -26,6 +27,10 @@ Pizzeria.prototype.buildShopMenu = function(catalog, menu) {
 function Order() {
   this.contents = [];
   this.totalPrice = 0;
+}
+Order.prototype.addPie = function(thisPie) {
+  this.contents.push(thisPie);
+  this.totalPrice += thisPie.price;
 }
 function Pie(size) {
   this.category = size;
@@ -63,7 +68,23 @@ function displayPie() {
   dPieSize = myShop.crustChoices[myPie.category][1];
   $("#yourPie").append("<li class='list-group-item'>" + dPieSize + "</li>");
   $("#yourPie").append("<li class='list-group-item'>Toppings: " + myPie.ingredients.join(", ") + "</li>");
-  $("#yourPie").append("<li class='list-group-item'>Your Price: $" + myPie.price + "</li>");
+  $("#yourPie").append("<li class='list-group-item'>Your Price: $" + myPie.price.toFixed(2) + "</li>");
+}
+function resetPie() {
+  delete myPie;
+  $("#yourPie").empty();
+  $(".pieButtons").hide();
+  $("#btnSelectSize").show();
+  $("#btnAddTopping").hide();
+}
+function displayOrder() {
+  $("#yourOrder").empty();
+  myOrder.contents.forEach(function(content) {
+    var lineItem = "<li class='list-group-item'>" + myShop.crustChoices[content.category][1] + " Pizza with " + content.ingredients.join(", ") + " $" + content.price.toFixed(2) + "</li>";
+    $("#yourOrder").append(lineItem);
+  });
+  orderHeader = "<li class='list-group-item active'>Your Total: $" + myOrder.totalPrice.toFixed(2) + "</li>";
+  $("#yourOrder").append(orderHeader);
 }
 $(document).ready (function(){
   // Populate dropdown menus for sie and toppings
@@ -76,20 +97,25 @@ $(document).ready (function(){
     displayPie();
     $(".pieButtons").show();
     $("#btnSelectSize").hide();
+    $("#btnAddTopping").show();
   });
   // This button adds the selected topping to the Pizza
   $("#btnAddTopping").click(function() {
     var myTopping = $("#pieToppings").val();
     myPie.addTopping(myTopping);
     displayPie();
-    console.log(myPie);
-  });
+    });
   // This button deletes the existing Pizza
   $("#btnClearPie").click(function() {
-    delete myPie;
-    $("#yourPie").empty();
-    $(".pieButtons").hide();
-    $("#btnSelectSize").show();
-  })
-
+    resetPie();
+  });
+  $("#btnConfirmPie").click(function() {
+    if (myPie.toppings.length !== 0) {
+      myOrder.addPie(myPie);
+      resetPie();
+      displayOrder();
+    } else {
+      alert("Please add at least one topping before continuing with your order.")
+    }
+  });
 });
