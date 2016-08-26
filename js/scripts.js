@@ -29,6 +29,10 @@ function Pie(size) {
   this.ingredients = [];
   this.price = myShop.crustChoices[size][2];
 }
+Pie.prototype.addTopping = function(toppingID) {
+  this.ingredients.push(myShop.toppingsChoices[toppingID][1]);
+  this.price += myShop.toppingsChoices[toppingID][2][this.category];
+}
 function Topping(sName, name, prices) {
   this.shortName = sName;
   this.descrip = name;

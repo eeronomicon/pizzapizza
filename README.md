@@ -8,7 +8,7 @@
 
 This application allows the user to build a custom pizza. General requirements are as follows:
 
-Create a website for a pizza company where a user can choose one or more individual toppings (cheese, pepperoni, artichoke, anchovy, etc) and a size to order a pizza and see the final cost.
+Create a website for a pizza company where a user can choose one or more individual toppings (for example: cheese, pepperoni, artichoke, anchovy, etc) and a size to order a pizza and see the final cost.
 
 * Allow the user to choose toppings and size for the pizza they'd like to order.
 * Create a pizza object constructor with properties for toppings and size.
