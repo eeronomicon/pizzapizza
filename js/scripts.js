@@ -1,18 +1,21 @@
 // Back End Code
 toppingsCatalog = [
-  [0, "Pepperoni", [.75, 1, 1.5]],
-  [1, "Mushrooms", [.5, .75, 1.25]],
+  [0, "Cheese", [.5, 1, 2]],
+  [1, "Pepperoni", [.75, 1, 1.5]],
   [2, "Green Olives", [.5, .75, 1.25]],
   [3, "Red Onions", [.5, .75, 1.25]],
   [4, "Meatballs", [.75, 1, 1.5]],
   [5, "Sun Dried Tomatoes", [.75, 1, 1.5]],
   [6, "Red Onions", [.5, .75, 1.25]],
-  [7, "BBQ Soy Curls", [.75, 1, 1.5]]
+  [7, "BBQ Soy Curls", [.75, 1, 1.5]],
+  [8, "Pineapple", [.5, .75, 1.25]],
+  [9, "Canadian Bacon", [.75, 1, 1.5]],
+  [10, "Mushrooms", [.5, .75, 1.25]]
 ];
 crustCatalog = [
-  [0, "Personal 8\"", 8],
-  [1, "Medium 12\"", 12],
-  [2, "Large 16\"", 16]
+  [0, "Personal 8\"", 7],
+  [1, "Medium 12\"", 11],
+  [2, "Large 16\"", 15]
 ];
 function Pizzeria() {
   this.toppingsChoices = [];
