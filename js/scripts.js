@@ -1,6 +1,6 @@
 // Back End Code
 toppingsCatalog = [
-  [0, "Cheese", [.5, 1, 2]],
+  [0, "Cheese", [.5, .75, 1.25]],
   [1, "Pepperoni", [.75, 1, 1.5]],
   [2, "Green Olives", [.5, .75, 1.25]],
   [3, "Red Onions", [.5, .75, 1.25]],
