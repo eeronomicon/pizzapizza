@@ -23,6 +23,10 @@ Pizzeria.prototype.buildShopMenu = function(catalog, menu) {
     array.push(item);
   });
 }
+function Order() {
+  this.contents = [];
+  this.totalPrice = 0;
+}
 function Pie(size) {
   this.category = size;
   this.toppings = [];
@@ -44,9 +48,10 @@ function Topping(sName, name, prices) {
   this.prices = prices;
 }
 // Let's Make Our Pizzeria!
-myShop = new Pizzeria();
+var myShop = new Pizzeria();
 myShop.buildShopMenu(toppingsCatalog, "toppingsChoices");
 myShop.buildShopMenu(crustCatalog, "crustChoices");
+var myOrder = new Order();
 // Front End Code
 function populateDropdown(ddName, ddCatalog) {
   ddCatalog.forEach(function(ddCatItem){
@@ -60,7 +65,6 @@ function displayPie() {
   $("#yourPie").append("<li class='list-group-item'>Toppings: " + myPie.ingredients.join(", ") + "</li>");
   $("#yourPie").append("<li class='list-group-item'>Your Price: $" + myPie.price + "</li>");
 }
-
 $(document).ready (function(){
   // Populate dropdown menus for sie and toppings
   populateDropdown("#pieSize", myShop.crustChoices);
@@ -71,7 +75,7 @@ $(document).ready (function(){
     myPie = new Pie(myPieSize);
     displayPie();
     $(".pieButtons").show();
-    console.log(myPie);
+    $("#btnSelectSize").hide();
   });
   // This button adds the selected topping to the Pizza
   $("#btnAddTopping").click(function() {
@@ -85,6 +89,7 @@ $(document).ready (function(){
     delete myPie;
     $("#yourPie").empty();
     $(".pieButtons").hide();
+    $("#btnSelectSize").show();
   })
 
 });

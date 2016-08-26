@@ -38,7 +38,7 @@ Create a website for a pizza company where a user can choose one or more individ
 
 * Once a pizza size has been selected, the user must reset the pizza in order to change size
   * Input: user clicks on button to select size
-  * Output: option to update pizza size is not available
+  * Output: user advised to reset pizza to change size
 
 ## Setup/Installation Requirements
 
