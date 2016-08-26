@@ -20,6 +20,10 @@ Create a website for a pizza company where a user can choose one or more individ
   * Input: user selects "large" and clicks [Create!]
   * Output: an "empty" large pizza is created with a base price of a large pizza ($16)
 
+* Once a pizza size has been selected, a list of toppings is available, with prices that reflect the pizza size
+  * Input: user selects a large pizza
+  * Output: the toppings menu shows the adder prices for large pizzas (e.g., pepperoni: $1.50)
+
 * User can select one topping for this empty pizza.
   * Input: user selects "pepperoni"
   * Output: the "empty" large pizza now has "pepperoni" as its topping

@@ -70,7 +70,14 @@ function notifyUser(msgNo) {
 function populateDropdown(ddName, ddCatalog) {
   ddCatalog.forEach(function(ddCatItem){
     $(ddName).append("<option value=" + ddCatItem[0] + ">" + ddCatItem[1] + "</option");
-  })
+  });
+}
+function updateToppingsDropdown(pieSize) {
+  $("#pieToppings").empty();
+  myShop.toppingsChoices.forEach(function(choice) {
+    toppingMenuItem = "<option value=" + choice[0] + ">" + choice[1] + " ($" + choice[2][pieSize].toFixed(2) + ")</option";
+    $("#pieToppings").append(toppingMenuItem);
+  });
 }
 function displayPie() {
   if (myPie.ingredients.length === 0) {
@@ -87,6 +94,7 @@ function displayPie() {
 function resetPie() {
   delete myPie;
   $("#yourPie").empty();
+  $("#pieToppings").empty();
   $(".pieButtons").hide();
   $("#btnSelectSize").show();
   $("#btnAddTopping").hide();
@@ -106,12 +114,13 @@ function displayOrder() {
 $(document).ready (function(){
   // Populate dropdown menus for sie and toppings
   populateDropdown("#pieSize", myShop.crustChoices);
-  populateDropdown("#pieToppings", myShop.toppingsChoices);
+  // populateDropdown("#pieToppings", myShop.toppingsChoices);
   // When the user selects a size a new Pizza object is created
   $("#btnSelectSize").click(function() {
     var myPieSize = $("#pieSize").val();
     myPie = new Pie(myPieSize);
     displayPie();
+    updateToppingsDropdown(myPieSize);
     $("#btnSelectSize").hide();
     $("#btnAddTopping").show();
     $("#btnClearPie").show();
