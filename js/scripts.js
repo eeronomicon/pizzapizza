@@ -30,20 +30,23 @@ function Pie(size) {
   this.price = myShop.crustChoices[size][2];
 }
 Pie.prototype.addTopping = function(toppingID) {
-  this.ingredients.push(myShop.toppingsChoices[toppingID][1]);
-  this.price += myShop.toppingsChoices[toppingID][2][this.category];
+  if (this.toppings.includes(parseInt(toppingID))) {
+    alert("Sorry, you already added this topping!");
+  } else {
+    this.toppings.push(myShop.toppingsChoices[toppingID][0])
+    this.ingredients.push(myShop.toppingsChoices[toppingID][1]);
+    this.price += myShop.toppingsChoices[toppingID][2][this.category];
+  }
 }
 function Topping(sName, name, prices) {
   this.shortName = sName;
   this.descrip = name;
   this.prices = prices;
 }
-
+// Let's Make Our Pizzeria!
 myShop = new Pizzeria();
 myShop.buildShopMenu(toppingsCatalog, "toppingsChoices");
 myShop.buildShopMenu(crustCatalog, "crustChoices");
-
-
 // Front End Code
 function populateDropdown(ddName, ddCatalog) {
   ddCatalog.forEach(function(ddCatItem){
@@ -59,10 +62,10 @@ function displayPie() {
 }
 
 $(document).ready (function(){
-
+  // Populate dropdown menus for sie and toppings
   populateDropdown("#pieSize", myShop.crustChoices);
   populateDropdown("#pieToppings", myShop.toppingsChoices);
-
+  // When the user selects a size a new Pizza object is created
   $("#btnSelectSize").click(function() {
     var myPieSize = $("#pieSize").val();
     myPie = new Pie(myPieSize);
@@ -70,12 +73,14 @@ $(document).ready (function(){
     $(".pieButtons").show();
     console.log(myPie);
   });
+  // This button adds the selected topping to the Pizza
   $("#btnAddTopping").click(function() {
     var myTopping = $("#pieToppings").val();
     myPie.addTopping(myTopping);
     displayPie();
     console.log(myPie);
   });
+  // This button deletes the existing Pizza
   $("#btnClearPie").click(function() {
     delete myPie;
     $("#yourPie").empty();

@@ -1,3 +1,10 @@
+.jumbotron {
+  background-image: url(../img/banner.jpg);
+  background-size: cover;
+}
+.jumbotron h1 {
+  text-shadow: 4px 4px 5px #ddd;
+}
 .pieButtons {
   display: none;
 }

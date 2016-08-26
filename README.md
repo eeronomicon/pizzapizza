@@ -32,6 +32,14 @@ Create a website for a pizza company where a user can choose one or more individ
   * Input: user selects a medium pizza ($12) and adds pepperoni ($1.00), Canadian bacon ($1.00), and pineapple ($.75)
   * Output: a medium pizza with those three toppings are created with a price of $14.75
 
+* User can cancel current pizza and start again from scratch.
+  * Input: user clicks on "Cancel Pizza" button
+  * Output: current pizza status is cleared and user can start building a new pizza
+
+* Once a pizza size has been selected, the user must reset the pizza in order to change size
+  * Input: user clicks on button to select size
+  * Output: option to update pizza size is not available
+
 ## Setup/Installation Requirements
 
 * Download the .zip file from GitHub
