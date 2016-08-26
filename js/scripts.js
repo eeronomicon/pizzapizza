@@ -69,7 +69,7 @@ function notifyUser(msgNo) {
 }
 function populateDropdown(ddName, ddCatalog) {
   ddCatalog.forEach(function(ddCatItem){
-    $(ddName).append("<option value=" + ddCatItem[0] + ">" + ddCatItem[1] + "</option");
+    $(ddName).append("<option value=" + ddCatItem[0] + ">" + ddCatItem[1] + " ($" + ddCatItem[2] + ")</option>");
   });
 }
 function updateToppingsDropdown(pieSize) {
