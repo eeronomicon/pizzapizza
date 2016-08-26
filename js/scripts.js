@@ -40,7 +40,7 @@ function Pie(size) {
 }
 Pie.prototype.addTopping = function(toppingID) {
   if (this.toppings.includes(parseInt(toppingID))) {
-    alert("Sorry, you already added this topping!");
+    notifyUser(0);
   } else {
     this.toppings.push(myShop.toppingsChoices[toppingID][0])
     this.ingredients.push(myShop.toppingsChoices[toppingID][1]);
@@ -58,6 +58,12 @@ myShop.buildShopMenu(toppingsCatalog, "toppingsChoices");
 myShop.buildShopMenu(crustCatalog, "crustChoices");
 var myOrder = new Order();
 // Front End Code
+var userMessages = [
+  "Sorry, you already added this topping!"
+];
+function notifyUser(msgNo) {
+  alert(userMessages[msgNo]);
+}
 function populateDropdown(ddName, ddCatalog) {
   ddCatalog.forEach(function(ddCatItem){
     $(ddName).append("<option value=" + ddCatItem[0] + ">" + ddCatItem[1] + "</option");
@@ -118,12 +124,8 @@ $(document).ready (function(){
     resetPie();
   });
   $("#btnConfirmPie").click(function() {
-    if (myPie.toppings.length !== 0) {
-      myOrder.addPie(myPie);
-      resetPie();
-      displayOrder();
-    } else {
-      alert("Please add at least one topping before continuing with your order.")
-    }
+    myOrder.addPie(myPie);
+    resetPie();
+    displayOrder();
   });
 });
