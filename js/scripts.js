@@ -64,6 +64,11 @@ function populateDropdown(ddName, ddCatalog) {
   })
 }
 function displayPie() {
+  if (myPie.ingredients.length === 0) {
+    $("#btnConfirmPie").hide();
+  } else {
+    $("#btnConfirmPie").show();
+  }
   $("#yourPie").empty();
   dPieSize = myShop.crustChoices[myPie.category][1];
   $("#yourPie").append("<li class='list-group-item'>" + dPieSize + "</li>");
@@ -76,8 +81,11 @@ function resetPie() {
   $(".pieButtons").hide();
   $("#btnSelectSize").show();
   $("#btnAddTopping").hide();
+  $("#pieSize").val(0);
+  $("#pieToppings").val(0);
 }
 function displayOrder() {
+  $(".yourOrder").show();
   $("#yourOrder").empty();
   myOrder.contents.forEach(function(content) {
     var lineItem = "<li class='list-group-item'>" + myShop.crustChoices[content.category][1] + " Pizza with " + content.ingredients.join(", ") + " $" + content.price.toFixed(2) + "</li>";
@@ -95,9 +103,9 @@ $(document).ready (function(){
     var myPieSize = $("#pieSize").val();
     myPie = new Pie(myPieSize);
     displayPie();
-    $(".pieButtons").show();
     $("#btnSelectSize").hide();
     $("#btnAddTopping").show();
+    $("#btnClearPie").show();
   });
   // This button adds the selected topping to the Pizza
   $("#btnAddTopping").click(function() {

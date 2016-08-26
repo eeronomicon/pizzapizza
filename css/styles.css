@@ -5,9 +5,6 @@
 .jumbotron h1 {
   text-shadow: 4px 4px 5px #ddd;
 }
-.pieButtons {
+.yourOrder, #btnAddTopping, #btnConfirmPie, #btnClearPie {
   display: none;
-}
-#btnConfirmPie, #btnAddTopping {
-  display: hidden;
 }
