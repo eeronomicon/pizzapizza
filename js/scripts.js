@@ -43,9 +43,16 @@ myShop = new Pizzeria();
 myShop.buildShopMenu(toppingsCatalog, "toppingsChoices");
 myShop.buildShopMenu(crustCatalog, "crustChoices");
 
-myPie = new Pie(1);
 
 // Front End Code
+function populateDropdown(ddName, ddCatalog) {
+  ddCatalog.forEach(function(ddCatItem){
+    $(ddName).append("<option value=" + ddCatItem[0] + ">" + ddCatItem[1] + "</option");
+  })
+}
 $(document).ready (function(){
+
+  populateDropdown("#pieSize", myShop.crustChoices);
+  // $("#pieSize").append("<option>" + "Personal 8-inch" + "</option>");
 
 });

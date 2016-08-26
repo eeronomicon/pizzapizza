@@ -7,11 +7,32 @@
     <script src="js/jquery-3.1.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
-    <title>Pizzapizza: Choose Your Own Pizzadventure!</title>
+    <title>Mystique Pizza: Choose Your Own Pizzadventure!</title>
   </head>
   <body>
+    <!-- header -->
+    <div class="container-fluid">
+      <div class="jumbotron">
+        <h1>Mystique Pizza</h1>
+      </div>
+    </div>
+    <!-- pizza-maker goes here -->
     <div class="container">
-      
+      <div class="row">
+        <!-- pick your pie -->
+        <div class="col-xs-8">
+          <h4>Pick a Pie</h4>
+          <form class="form-group" id="pieForm">
+            <label for="pieSize">Select size:</label>
+            <select class="form-control" id="pieSize">
+            </select>
+          </form>
+        </div>
+        <!-- see your pie -->
+        <div class="col-xs-4">
+          <h4>Your Pie</h4>
+        </div>
+      </div>
     </div>
   </body>
 </html>
