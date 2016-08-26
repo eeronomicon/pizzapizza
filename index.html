@@ -22,15 +22,20 @@
         <!-- pick your pie -->
         <div class="col-xs-8">
           <h4>Pick a Pie</h4>
-          <form class="form-group" id="pieForm">
-            <label for="pieSize">Select size:</label>
-            <select class="form-control" id="pieSize">
-            </select>
+          <form id="pieForm">
+            <div class="form-group">
+              <label for="pieSize">Select size:</label>
+              <select class="form-control" id="pieSize"></select>
+            </div>
+            <button type="button" class="btn btn-info" id="btnSelectSize">Make It So!</button>
           </form>
         </div>
         <!-- see your pie -->
         <div class="col-xs-4">
           <h4>Your Pie</h4>
+          <ul class="list-group" id="yourPie">
+
+          </ul>
         </div>
       </div>
     </div>

@@ -50,9 +50,22 @@ function populateDropdown(ddName, ddCatalog) {
     $(ddName).append("<option value=" + ddCatItem[0] + ">" + ddCatItem[1] + "</option");
   })
 }
+function displayPie() {
+  $("#yourPie").empty();
+  dPieSize = myShop.crustChoices[myPie.category][1];
+  $("#yourPie").append("<li class='list-group-item'>" + dPieSize + "</li>");
+  $("#yourPie").append("<li class='list-group-item'>Toppings: " + myPie.toppings.join(", ") + "</li>");
+  $("#yourPie").append("<li class='list-group-item'>Your Price: $" + myPie.price + "</li>");
+}
 $(document).ready (function(){
 
   populateDropdown("#pieSize", myShop.crustChoices);
-  // $("#pieSize").append("<option>" + "Personal 8-inch" + "</option>");
+
+  $("#btnSelectSize").click(function() {
+    var myPieSize = $("#pieSize").val();
+    myPie = new Pie(myPieSize);
+    displayPie();
+    console.log(myPie);
+  });
 
 });
