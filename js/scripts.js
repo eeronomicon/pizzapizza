@@ -10,7 +10,15 @@ toppingsCatalog = [
   [7, "BBQ Soy Curls", [.75, 1, 1.5]],
   [8, "Pineapple", [.5, .75, 1.25]],
   [9, "Canadian Bacon", [.75, 1, 1.5]],
-  [10, "Mushrooms", [.5, .75, 1.25]]
+  [10, "Mushrooms", [.5, .75, 1.25]],
+  [11, "Basil", [.5, .75, 1.25]],
+  [12, "Garlic", [.5, .75, 1.25]],
+  [13, "Pesto", [.5, .75, 1.25]],
+  [14, "Extra Sauce", [.5, .75, 1.25]],
+  [15, "Black Olives", [.5, .75, 1.25]],
+  [16, "Italian Sausage", [.75, 1, 1.5]],
+  [17, "Arugula", [.5, .75, 1.25]],
+  [18, "Corn", [.5, .75, 1.25]]
 ];
 crustCatalog = [
   [0, "Personal 8\"", 7],
@@ -35,11 +43,11 @@ Order.prototype.addPie = function(thisPie) {
   this.contents.push(thisPie);
   this.totalPrice += thisPie.price;
 }
-function Pie(size) {
-  this.category = size;
+function Pie() {
+  this.category;
   this.toppings = [];
   this.ingredients = [];
-  this.price = myShop.crustChoices[size][2];
+  this.price;
 }
 Pie.prototype.addTopping = function(toppingID) {
   if (this.toppings.includes(parseInt(toppingID))) {
@@ -60,6 +68,7 @@ var myShop = new Pizzeria();
 myShop.buildShopMenu(toppingsCatalog, "toppingsChoices");
 myShop.buildShopMenu(crustCatalog, "crustChoices");
 var myOrder = new Order();
+var myPie = new Pie();
 // Front End Code
 var userMessages = [
   "Sorry, you already added this topping!"
@@ -92,7 +101,7 @@ function displayPie() {
   $("#yourPie").append("<li class='list-group-item'>Your Price: $" + myPie.price.toFixed(2) + "</li>");
 }
 function resetPie() {
-  delete myPie;
+  myPie = new Pie();
   $("#yourPie").empty();
   $("#pieToppings").empty();
   $(".pieButtons").hide();
@@ -118,7 +127,8 @@ $(document).ready (function(){
   // When the user selects a size a new Pizza object is created
   $("#btnSelectSize").click(function() {
     var myPieSize = $("#pieSize").val();
-    myPie = new Pie(myPieSize);
+    myPie.category = myPieSize;
+    myPie.price = myShop.crustChoices[myPieSize][2];
     displayPie();
     updateToppingsDropdown(myPieSize);
     $("#btnSelectSize").hide();
