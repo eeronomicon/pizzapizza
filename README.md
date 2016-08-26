@@ -1,37 +1,57 @@
-# _{Application Name}_
+# _Pizzapizza!_
 
-#### _{Brief description of application}, {Date of current version}_
+#### _Choose Your Own Pizzadventure! 26 August 2016_
 
-#### By _**{List of contributors}**_
+#### By _**HK Kahng**_
 
 ## Description
 
-_{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
+This application allows the user to build a custom pizza. General requirements are as follows:
+
+Create a website for a pizza company where a user can choose one or more individual toppings (cheese, pepperoni, artichoke, anchovy, etc) and a size to order a pizza and see the final cost.
+
+* Allow the user to choose toppings and size for the pizza they'd like to order.
+* Create a pizza object constructor with properties for toppings and size.
+* Create a prototype method for the cost of a pizza depending on the selections chosen. Use your own formula for this.
+
+## Specifications
+
+* User can create a pizza of a specified size and price.
+  * Input: user selects "large" and clicks [Create!]
+  * Output: an "empty" large pizza is created with a base price of a large pizza ($16)
+
+* User can select one topping for this empty pizza.
+  * Input: user selects "pepperoni"
+  * Output: the "empty" large pizza now has "pepperoni" as its topping
+
+* User's topping choice increases the price of the pizza by a specified amount.
+  * Input: user selects a large pizza ($16) and adds pepperoni ($2).
+  * Output: a large pepperoni pizza is created with a price of $18
+
+* User can add multiple toppings to a pizza.
+  * Input: user selects a medium pizza ($12) and adds pepperoni ($1.00), Canadian bacon ($1.00), and pineapple ($.75)
+  * Output: a medium pizza with those three toppings are created with a price of $14.75
 
 ## Setup/Installation Requirements
 
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
-
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this app depends on?}_
+* Download the .zip file from GitHub
+* Unpack and open index.html
+* Think about which pizzeria to hit for lunch
 
 ## Known Bugs
 
-_{Are there issues that have not yet been resolved that you want to let users know you know?  Outline any issues that would impact use of your application.  Share any workarounds that are in place. }_
+There are no known bugs with this application. Hopefully there are no bugs in your pizza as well.
 
 ## Support and contact details
 
-_{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}_
+Contact me through GitHub!
 
 ## Technologies Used
 
-_{Tell me about the languages and tools you used to create this app. Assume that I know you probably used HTML and CSS. If you did something really cool using only HTML, point that out.}_
+This application was made with HTML, CSS, JavaScript, jQuery, and Bootstrap.
 
 ### License
 
-*{Determine the license under which this application can be used.  See below for more details on licensing.}*
+This application is published under the MIT License.
 
-Copyright (c) 2016 **_{List of contributors or company name}_**
+Copyright (c) 2016 **_HK Kahng_**
