@@ -48,6 +48,7 @@ Create a website for a pizza company where a user can choose one or more individ
 
 * Download the .zip file from GitHub
 * Unpack and open index.html
+* Or access through [GitHub Pages](https://eeronomicon.github.io/pizzapizza/)
 * Think about which pizzeria to hit for lunch
 
 ## Known Bugs
